@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>The Wandering Shipwright</title>
+  <rect width="64" height="64" rx="14" fill="#385c91"/>
+  <path d="M32 10v35" fill="none" stroke="#f1ecdf" stroke-width="3" stroke-linecap="round"/>
+  <path d="M36 15 51 38H36Z" fill="#f1ecdf"/>
+  <path d="M27 23 14 38h13Z" fill="#c9d7eb"/>
+  <path d="m11 44 6 9h29l7-9Z" fill="#f1ecdf"/>
+  <path d="M16 57h32" stroke="#c9d7eb" stroke-width="2" stroke-linecap="round"/>
+</svg>

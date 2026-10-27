@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import { getPosts } from '@/lib/content';
+export default async function Blog(){const posts=await getPosts();return <><header className="page-header"><div className="eyebrow">THE ATLAS / FIELD NOTES</div><h1>Things I’ve<br/><em>figured out.</em></h1><p className="intro">Notes on software, systems, and the questions along the way.</p></header><div className="article-list">{posts.map(p=><article key={p.slug} className="article-card"><div className="tiny muted">{new Intl.DateTimeFormat('en',{dateStyle:'medium',timeZone:'UTC'}).format(new Date(p.date))} · {p.readTime} MIN READ</div><h2><Link href={`/blog/${p.slug}`}>{p.title} ↗</Link></h2><p className="muted">{p.excerpt}</p></article>)}</div></>;}

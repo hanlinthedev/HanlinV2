@@ -1,0 +1,3 @@
+import { Section } from '@/components/section';
+import { getProjects } from '@/lib/content';
+export async function Work(){const projects=await getProjects();return <Section id="work" full title={<>There is always<br/><em>more to build.</em></>}><div className="work-grid">{projects.map(p=><article className="project" key={p.id}><div className="project-number"><span>FIELD STUDY / {p.id}</span><span className="private">PRIVATE PROJECT</span></div><span className="tiny accent">{p.category}</span><h3>{p.title}</h3><p>{p.description}</p><p className="note">{p.note}</p><div className="tags">{p.tags.map(t=><span key={t}>{t}</span>)}</div></article>)}</div></Section>;}

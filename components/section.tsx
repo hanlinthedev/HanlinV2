@@ -1,0 +1,3 @@
+import type { ReactNode } from 'react';
+import { getNavigation } from '@/lib/content';
+export async function Section({id,title,children,full=false}:{id:string;title:ReactNode;children:ReactNode;full?:boolean}) {const {sections}=await getNavigation();const index=sections.findIndex(s=>s.id===id);return <section id={id} className="section" aria-labelledby={`${id}-heading`}><div className="section-head"><div className="section-num"><span>{String(index+1).padStart(2,'0')}</span> {sections[index]?.label.toUpperCase()}</div><h2 id={`${id}-heading`}>{title}</h2></div><div className={full?'':'section-body'}>{children}</div></section>;}

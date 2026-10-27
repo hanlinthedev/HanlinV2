@@ -1,0 +1,3 @@
+import { Section } from '@/components/section';
+import { getNow } from '@/lib/content';
+export async function Now(){const n=await getNow();return <Section id="now" title={<>On the <em>horizon.</em></>}><div className="now-panel"><span className="tiny accent">● CURRENTLY TAKING SHAPE / PRIVATE PROJECT</span><h3>{n.title}</h3><div className="now-layout"><div><p style={{color:'var(--fg)'}}>{n.subtitle}</p><p>{n.description}</p><div className="tags">{n.tags.map(t=><span key={t}>{t}</span>)}</div></div><div className="learning"><span className="tiny accent">LEARNING, ON PURPOSE</span><p>{n.learning}</p></div></div></div></Section>;}
