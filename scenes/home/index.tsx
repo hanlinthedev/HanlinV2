@@ -1,3 +1,4 @@
+import { getNavigation } from '@/lib/content';
 import { ProfileSchema } from '@/components/profile-schema';
 import { Hero } from './hero';
 import { About } from './about';
@@ -6,4 +7,5 @@ import { Now } from './now';
 import { Journey } from './journey';
 import { Toolbox } from './toolbox';
 import { Contact } from './contact';
-export default function Home(){return <><ProfileSchema/><Hero/><About/><Work/><Now/><Journey/><Toolbox/><Contact/></>;}
+const parts={about:About,work:Work,now:Now,journey:Journey,toolbox:Toolbox,contact:Contact};
+export default async function Home(){const {sections}=await getNavigation();return <><ProfileSchema/><Hero/>{sections.map(section=>{const Part=parts[section.id as keyof typeof parts];return Part?<Part key={section.id}/>:null;})}</>;}

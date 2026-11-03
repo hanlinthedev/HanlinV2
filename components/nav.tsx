@@ -3,6 +3,6 @@ import Link from 'next/link';
 import { getNavigation, getSettings } from '@/lib/content';
 export async function Nav() {
  const [{sections, archivePublished}, settings] = await Promise.all([getNavigation(), getSettings()]);
- const links = <>{sections.map(section=><Link key={section.id} href={`/#${section.id}`}>{section.label}</Link>)}<Link href="/blog">Blog</Link>{archivePublished&&<Link href="/archive">Archive</Link>}<Link href="/world" className="world-link">Enter world <span aria-hidden="true">↗</span></Link></>;
+ const links = <>{sections.map(section=><Link key={section.id} href={`/#${section.id}`}>{section.label}</Link>)}<Link href="/blog">Blog</Link><a href={settings.cvUrl} download="Han_Lin_Aung_CV.pdf" className="nav-cv" aria-label="Download Han Lin Aung’s CV">CV <span aria-hidden="true">↓</span></a>{archivePublished&&<Link href="/archive">Archive</Link>}<Link href="/world" className="world-link">Enter world <span aria-hidden="true">↗</span></Link></>;
  return <header className="nav"><Link href="/" className="brand" aria-label={`${settings.name}, home`}>{settings.name.toLowerCase()}<span>.</span></Link><nav className="navlinks" aria-label="Main navigation">{links}</nav><MobileNav>{links}</MobileNav></header>;
 }
