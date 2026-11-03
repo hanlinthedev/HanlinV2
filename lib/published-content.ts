@@ -1,6 +1,6 @@
 import 'server-only';
 import { cacheTag,cacheLife } from 'next/cache';
-import type { PortfolioContent } from '../../shared/content';
+import type { PortfolioContent } from './content-types';
 export async function getPublishedContent():Promise<PortfolioContent|null>{
  'use cache';cacheTag('content');cacheLife({stale:30,revalidate:60,expire:300});
  const endpoint=process.env.PORTFOLIO_CONTENT_API_URL;if(!endpoint)return null;
